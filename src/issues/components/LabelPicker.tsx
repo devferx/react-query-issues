@@ -9,6 +9,7 @@ export const LabelPicker = () => {
     <div>
       {labelsQuery.data?.map((label) => (
         <span
+          key={label.id}
           className="badge rounded-pill m-1 label-picker"
           style={{
             border: `1px solid #${label.color}`,
