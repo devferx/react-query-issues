@@ -13,7 +13,7 @@ const comment3 =
 
 export const IssueView = () => {
   const { id = "0" } = useParams();
-  const { issueQuery } = useIssue(Number(id));
+  const { issueQuery, commentsQuery } = useIssue(Number(id));
 
   // LoadingIcon
 
@@ -32,6 +32,12 @@ export const IssueView = () => {
       </div>
 
       <IssueComment issue={issueQuery.data} />
+
+      {commentsQuery.isLoading && <LoadingIcon />}
+
+      {commentsQuery.data?.map((issue) => (
+        <IssueComment key={issue.id} issue={issue} />
+      ))}
 
       {/* Primer comentario */}
       {/* <IssueComment body={comment1} /> */}
