@@ -5,7 +5,7 @@ import { sleep } from "../../helpers/sleep";
 import { Label } from "../interfaces/label";
 
 const getLabels = async (): Promise<Label[]> => {
-  const { data } = await githubApi.get<Label[]>("/labels", {
+  const { data } = await githubApi.get<Label[]>("/labels?per_page=100", {
     headers: {
       Authorization: null,
     },
