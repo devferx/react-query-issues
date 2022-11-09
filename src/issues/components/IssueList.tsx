@@ -12,7 +12,6 @@ export const IssueList = ({
   state,
   onStateChanged,
 }: IssueListProps) => {
-  console.log(State);
   return (
     <div className="card border-white">
       <div className="card-header bg-dark">
