@@ -4,6 +4,7 @@ import { FiInfo, FiMessageSquare, FiCheckCircle } from "react-icons/fi";
 
 import { Issue, State } from "../interfaces";
 import { getIssueInfo, getIssueComments } from "../hooks/useIssue";
+import { timeSince } from "../../helpers/time-since";
 
 interface IssueItemProps {
   issue: Issue;
@@ -46,7 +47,7 @@ export const IssueItem = ({ issue }: IssueItemProps) => {
         <div className="d-flex flex-column flex-fill px-2">
           <span>{issue.title}</span>
           <span className="issue-subinfo">
-            #{issue.number} opened 2 days ago by{" "}
+            #{issue.number} opened {timeSince(issue.created_at)} ago by{" "}
             <span className="fw-bold">{issue.user.login}</span>
           </span>
           <div>
