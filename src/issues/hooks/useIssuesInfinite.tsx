@@ -22,7 +22,7 @@ const getIssues = async ({
   const [, , args] = queryKey;
   const { state, labels } = args as Props;
 
-  await sleep(2);
+  // await sleep(2);
   const params = new URLSearchParams();
 
   if (state) params.append("state", state);
@@ -44,7 +44,10 @@ export const useIssuesInfinite = ({ state, labels }: Props) => {
     ["issues", "infinite", { state, labels, page: 1 }],
     (data) => getIssues(data),
     {
-      // TODO: getNextPageParam
+      getNextPageParam: (lastPage, pages) => {
+        if (lastPage.length === 0) return;
+        return pages.length + 1;
+      },
     }
   );
 
