@@ -35,7 +35,7 @@ export const ListViewInfinite = () => {
           />
         )}
 
-        <button className="btn btn-outline-primary">Load More...</button>
+        <button className="btn btn-outline-primary mt-2">Load More...</button>
       </div>
 
       <div className="col-4">
